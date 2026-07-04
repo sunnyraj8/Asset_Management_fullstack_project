@@ -7,10 +7,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { AllocationService } from '../../../core/services/allocation';
 import { Allocation } from '../../../core/models/allocation';
 import { SnackbarService } from '../../../shared/services/snackbar';
+
 
 @Component({
   selector: 'app-allocation-list',
@@ -24,7 +25,8 @@ import { SnackbarService } from '../../../shared/services/snackbar';
       MatProgressSpinnerModule,
       MatButtonModule,
       MatFormFieldModule,
-      MatInputModule
+      MatInputModule,
+      MatPaginatorModule
     ],
   templateUrl: './allocation-list.html',
   styleUrl: './allocation-list.css'
@@ -160,6 +162,14 @@ export class AllocationList implements OnInit {
         }
 
       });
+
+  }
+  onPageChange(event: PageEvent) {
+
+    this.page = event.pageIndex;
+    this.size = event.pageSize;
+
+    this.loadAllocations();
 
   }
 

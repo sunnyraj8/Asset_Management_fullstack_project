@@ -15,3 +15,31 @@ button{
   margin-bottom:15px;
 
 }
+
+.status-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+}
+
+.status-new {
+  background: #2e7d32;
+}
+
+.status-active,
+.status-allocated {
+  background: #1565c0;
+}
+
+.status-returned {
+  background: #f9a825;
+  color: #000;
+}
+
+.status-scrapped {
+  background: #c62828;
+}

@@ -146,7 +146,19 @@
 
       <td mat-cell *matCellDef="let allocation">
 
-        {{ allocation.status }}
+        <span
+          class="status-chip"
+          [ngClass]="{
+          'status-new': allocation.status === 'NEW',
+          'status-active': allocation.status === 'ACTIVE',
+          'status-allocated': allocation.status === 'ALLOCATED',
+          'status-returned': allocation.status === 'RETURNED',
+          'status-scrapped': allocation.status === 'SCRAPPED'
+        }">
+
+  {{ allocation.status }}
+
+</span>
 
       </td>
 
@@ -192,5 +204,11 @@
     </tr>
 
   </table>
-
+  <mat-paginator
+    [length]="totalElements"
+    [pageSize]="size"
+    [pageIndex]="page"
+    [pageSizeOptions]="[5,10,20]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
 }

@@ -67,7 +67,33 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/allocations/allocate-asset/allocate-asset')
             .then(c => c.AllocateAsset)
+      },
+
+      {
+        path: 'employees',
+        loadComponent: () =>
+          import('./features/employees/employee-list/employee-list')
+            .then(c => c.EmployeeList)
       }
+      // {
+      //   path: 'employees/create',
+      //   loadComponent: () =>
+      //     import('./features/employees/create-employee/create-employee')
+      //       .then(c => c.CreateEmployee)
+      // },
+      // {
+      //   path: 'employees/:id',
+      //   loadComponent: () =>
+      //     import('./features/employees/employee-details/employee-details')
+      //       .then(c => c.EmployeeDetails)
+      // },
+      // {
+      //   path: 'employees/edit/:id',
+      //   loadComponent: () =>
+      //     import('./features/employees/edit-employee/edit-employee')
+      //       .then(c => c.EditEmployee)
+      // },
+
 
     ]
 
