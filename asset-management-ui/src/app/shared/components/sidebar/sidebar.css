@@ -1,0 +1,22 @@
+mat-nav-list{
+  padding-top:10px;
+}
+
+a{
+  height:48px;
+  margin:6px 10px;
+  border-radius:8px;
+}
+
+.active{
+  background:#1976d2;
+  color:white;
+}
+
+.active mat-icon{
+  color:white;
+}
+
+mat-icon{
+  margin-right:12px;
+}

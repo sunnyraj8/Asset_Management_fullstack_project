@@ -1,0 +1,82 @@
+<h2>Allocate Asset</h2>
+
+<form
+  [formGroup]="form"
+  (ngSubmit)="submit()">
+
+  <div class="form-group">
+
+    <label>Asset</label>
+
+    <select formControlName="assetId">
+
+      <option [ngValue]="null">
+
+        Select Asset
+
+      </option>
+
+      <option
+        *ngFor="let asset of availableAssets"
+        [value]="asset.id">
+
+        {{asset.assetCode}} - {{asset.brand}} {{asset.model}}
+
+      </option>
+
+    </select>
+
+  </div>
+
+  <div class="form-group">
+
+    <label>Employee</label>
+
+    <select formControlName="employeeId">
+
+      <option [ngValue]="null">
+
+        Select Employee
+
+      </option>
+
+      <option
+        *ngFor="let employee of activeEmployees"
+        [value]="employee.id">
+
+        {{employee.employeeCode}} - {{employee.fullName}}
+
+      </option>
+
+    </select>
+
+  </div>
+
+  <div class="form-group">
+
+    <label>Expected Return Date</label>
+
+    <input
+      type="date"
+      formControlName="expectedReturnDate">
+
+  </div>
+
+  <div class="form-group">
+
+    <label>Remarks</label>
+
+    <textarea
+      rows="4"
+      formControlName="remarks">
+    </textarea>
+
+  </div>
+
+  <button type="submit">
+
+    Allocate Asset
+
+  </button>
+
+</form>

@@ -1,0 +1,84 @@
+<h2>Asset Details</h2>
+
+<div *ngIf="loading">
+  Loading...
+</div>
+
+<div *ngIf="!loading && asset">
+
+  <table border="1" cellpadding="8">
+
+    <tr>
+      <td><b>Asset Code</b></td>
+      <td>{{asset.assetCode}}</td>
+    </tr>
+
+    <tr>
+      <td><b>Brand</b></td>
+      <td>{{asset.brand}}</td>
+    </tr>
+
+    <tr>
+      <td><b>Model</b></td>
+      <td>{{asset.model}}</td>
+    </tr>
+
+    <tr>
+      <td><b>Status</b></td>
+      <td>{{asset.status}}</td>
+    </tr>
+
+    <tr>
+      <td><b>Serial Number</b></td>
+      <td>{{asset.serialNumber}}</td>
+    </tr>
+
+    <tr>
+      <td><b>CPU</b></td>
+      <td>{{asset.cpu}}</td>
+    </tr>
+
+    <tr>
+      <td><b>RAM</b></td>
+      <td>{{asset.ram}}</td>
+    </tr>
+
+    <tr>
+      <td><b>SSD</b></td>
+      <td>{{asset.ssd}}</td>
+    </tr>
+
+    <tr>
+      <td><b>Operating System</b></td>
+      <td>{{asset.operatingSystem}}</td>
+    </tr>
+
+    <tr>
+      <td><b>Office Version</b></td>
+      <td>{{asset.officeVersion}}</td>
+    </tr>
+
+    <tr>
+      <td><b>Host Name</b></td>
+      <td>{{asset.hostName}}</td>
+    </tr>
+
+    <tr>
+      <td><b>Department</b></td>
+      <td>{{asset.department}}</td>
+    </tr>
+
+    <tr>
+      <td><b>Engineer</b></td>
+      <td>{{asset.engineer}}</td>
+    </tr>
+
+  </table>
+
+  <br>
+
+  <button (click)="back()">
+    Back
+  </button>
+
+</div>

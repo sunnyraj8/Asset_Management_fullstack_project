@@ -1,0 +1,31 @@
+.success-snackbar {
+
+  --mdc-snackbar-container-color: #2e7d32;
+
+  --mdc-snackbar-supporting-text-color: white;
+
+}
+
+.error-snackbar {
+
+  --mdc-snackbar-container-color: #d32f2f;
+
+  --mdc-snackbar-supporting-text-color: white;
+
+}
+
+.warning-snackbar {
+
+  --mdc-snackbar-container-color: #ed6c02;
+
+  --mdc-snackbar-supporting-text-color: white;
+
+}
+
+.info-snackbar {
+
+  --mdc-snackbar-container-color: #1976d2;
+
+  --mdc-snackbar-supporting-text-color: white;
+
+}

@@ -1,0 +1,73 @@
+<h2>Dashboard</h2>
+
+<div *ngIf="summary">
+
+  <table border="1" cellpadding="10">
+
+    <tr>
+      <td>Total Assets</td>
+      <td>{{summary.totalAssets}}</td>
+    </tr>
+
+    <tr>
+      <td>New Assets</td>
+      <td>{{summary.newAssets}}</td>
+    </tr>
+
+    <tr>
+      <td>Allocated Assets</td>
+      <td>{{summary.allocatedAssets}}</td>
+    </tr>
+
+    <tr>
+      <td>Returned Assets</td>
+      <td>{{summary.returnedAssets}}</td>
+    </tr>
+
+    <tr>
+      <td>Scrapped Assets</td>
+      <td>{{summary.scrappedAssets}}</td>
+    </tr>
+
+    <tr>
+      <td>Total Employees</td>
+      <td>{{summary.totalEmployees}}</td>
+    </tr>
+
+    <tr>
+      <td>Total Departments</td>
+      <td>{{summary.totalDepartments}}</td>
+    </tr>
+
+    <tr>
+      <td>Active Allocations</td>
+      <td>{{summary.activeAllocations}}</td>
+    </tr>
+
+  </table>
+
+</div>
+
+<br>
+
+<h3>Asset Status</h3>
+
+<table border="1" cellpadding="10">
+
+  <tr>
+
+    <th>Status</th>
+
+    <th>Count</th>
+
+  </tr>
+
+  <tr *ngFor="let item of assetStatusChart">
+
+    <td>{{item.status}}</td>
+
+    <td>{{item.count}}</td>
+
+  </tr>
+
+</table>

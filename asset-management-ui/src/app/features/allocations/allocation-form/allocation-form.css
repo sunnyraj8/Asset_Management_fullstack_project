@@ -1,0 +1,51 @@
+h2{
+
+  margin-bottom:20px;
+
+}
+
+form{
+
+  max-width:700px;
+
+}
+
+.form-group{
+
+  margin-bottom:20px;
+
+}
+
+label{
+
+  display:block;
+
+  margin-bottom:8px;
+
+  font-weight:600;
+
+}
+
+input,
+select,
+textarea{
+
+  width:100%;
+
+  padding:10px;
+
+  border:1px solid #ccc;
+
+  border-radius:6px;
+
+  font-size:15px;
+
+  box-sizing:border-box;
+
+}
+
+button{
+
+  margin-top:15px;
+
+}

@@ -1,0 +1,65 @@
+<div class="login-container">
+
+  <mat-card class="login-card">
+
+    <h1>Asset Management System</h1>
+
+    <h3>Welcome Back</h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+      <mat-form-field appearance="outline">
+
+        <mat-label>Username</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="username">
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+
+        <mat-label>Password</mat-label>
+
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password">
+
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="hidePassword=!hidePassword">
+
+          <mat-icon>
+            {{hidePassword ? 'visibility_off':'visibility'}}
+          </mat-icon>
+
+        </button>
+
+      </mat-form-field>
+
+      <mat-checkbox formControlName="rememberMe">
+
+        Remember Me
+
+      </mat-checkbox>
+
+      <button
+        mat-raised-button
+        color="primary"
+        class="login-btn"
+        [disabled]="loading">
+
+        Login
+
+      </button>
+
+    </form>
+
+  </mat-card>
+
+</div>

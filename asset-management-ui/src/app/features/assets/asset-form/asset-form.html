@@ -1,0 +1,215 @@
+<h2 class="page-title">
+
+  {{title}}
+
+</h2>
+
+<form
+  class="asset-form"
+  [formGroup]="form"
+  (ngSubmit)="submit()">
+
+  <!-- General Information -->
+
+  <div class="form-section">
+
+    <h3>General Information</h3>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Manufacturer Year</label>
+        <input
+          type="number"
+          formControlName="manufacturerYear">
+      </div>
+
+      <div class="form-group">
+        <label>Brand *</label>
+        <input
+          type="text"
+          formControlName="brand">
+      </div>
+
+      <div class="form-group">
+        <label>Model *</label>
+        <input
+          type="text"
+          formControlName="model">
+      </div>
+
+      <div class="form-group">
+        <label>Host Name *</label>
+        <input
+          type="text"
+          formControlName="hostName">
+      </div>
+
+      <div class="form-group">
+        <label>Serial Number *</label>
+        <input
+          type="text"
+          formControlName="serialNumber">
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Hardware -->
+
+  <div class="form-section">
+
+    <h3>Hardware Details</h3>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>CPU</label>
+        <input
+          type="text"
+          formControlName="cpu">
+      </div>
+
+      <div class="form-group">
+        <label>RAM</label>
+        <input
+          type="text"
+          formControlName="ram">
+      </div>
+
+      <div class="form-group">
+        <label>SSD</label>
+        <input
+          type="text"
+          formControlName="ssd">
+      </div>
+
+      <div class="form-group">
+        <label>Power Adapter Serial</label>
+        <input
+          type="text"
+          formControlName="powerAdapterSerial">
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Software -->
+
+  <div class="form-section">
+
+    <h3>Software Details</h3>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Operating System</label>
+        <input
+          type="text"
+          formControlName="operatingSystem">
+      </div>
+
+      <div class="form-group">
+        <label>Office Version</label>
+        <input
+          type="text"
+          formControlName="officeVersion">
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Warranty -->
+
+  <div class="form-section">
+
+    <h3>Warranty</h3>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+        <label>Warranty Start Date</label>
+        <input
+          type="date"
+          formControlName="warrantyStartDate">
+      </div>
+
+      <div class="form-group">
+        <label>Warranty End Date</label>
+        <input
+          type="date"
+          formControlName="warrantyEndDate">
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Assignment -->
+
+  <div class="form-section">
+
+    <h3>Assignment</h3>
+
+    <div class="form-grid">
+
+      <div class="form-group">
+
+        <label>Department *</label>
+
+        <select formControlName="departmentId">
+
+          <option [ngValue]="null">Select Department</option>
+
+          <option
+            *ngFor="let d of departments"
+            [value]="d.id">
+
+            {{ d.departmentName }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Engineer *</label>
+
+        <select formControlName="engineerId">
+
+          <option [ngValue]="null">Select Engineer</option>
+
+          <option
+            *ngFor="let e of employees"
+            [value]="e.id">
+
+            {{ e.firstName }} {{ e.lastName }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="button-row">
+
+    <button
+      type="submit"
+      [disabled]="loading">
+
+      {{ loading ? 'Saving...' : buttonText }}
+
+    </button>
+
+  </div>
+
+</form>
