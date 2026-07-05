@@ -1,7 +1,10 @@
 import { Routes } from '@angular/router';
 
 import { Login } from './features/auth/login/login';
-
+import { DepartmentList } from './features/departments/department-list/department-list';
+import { DepartmentDetails } from './features/departments/department-details/department-details';
+import { CreateDepartment } from './features/departments/create-department/create-department';
+import { EditDepartment } from './features/departments/edit-department/edit-department';
 export const routes: Routes = [
 
   {
@@ -94,6 +97,25 @@ export const routes: Routes = [
             .then(c => c.EditEmployee)
       },
 
+      {
+        path: 'departments',
+        component: DepartmentList
+      },
+
+      {
+        path: 'departments/create',
+        component: CreateDepartment
+      },
+
+      {
+        path: 'departments/edit/:id',
+        component: EditDepartment
+      },
+
+      {
+        path: 'departments/:id',
+        component: DepartmentDetails
+      },
 
     ]
 

@@ -18,5 +18,7 @@ public interface DepartmentService {
 
     DepartmentResponse getDepartmentByCode(
             String departmentCode);
-
+    Page<DepartmentResponse> searchDepartments(
+            String keyword,
+            Pageable pageable);
 }

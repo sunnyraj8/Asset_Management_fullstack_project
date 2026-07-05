@@ -45,10 +45,16 @@ public class DepartmentController {
     }
 
     @GetMapping("/search")
-    public DepartmentResponse getDepartmentByCode(
-            @RequestParam String departmentCode) {
+    public Page<DepartmentResponse> searchDepartments(
 
-        return departmentService.getDepartmentByCode(departmentCode);
+            @RequestParam String keyword,
+
+            Pageable pageable) {
+
+        return departmentService.searchDepartments(
+                keyword,
+                pageable);
+
     }
 
 }

@@ -1,0 +1,45 @@
+<h2>Department Details</h2>
+
+@if(loading){
+
+  <mat-spinner></mat-spinner>
+
+}
+
+@else if(department){
+
+  <mat-card>
+
+    <table>
+
+      <tr>
+
+        <th>Department Code</th>
+
+        <td>{{department.departmentCode}}</td>
+
+      </tr>
+
+      <tr>
+
+        <th>Department Name</th>
+
+        <td>{{department.departmentName}}</td>
+
+      </tr>
+
+    </table>
+
+  </mat-card>
+
+  <br>
+
+  <button
+    mat-raised-button
+    routerLink="/departments">
+
+    Back
+
+  </button>
+
+}

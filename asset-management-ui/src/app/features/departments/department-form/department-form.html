@@ -1,0 +1,42 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="submit()">
+
+  <mat-form-field
+    appearance="outline"
+    class="full-width">
+
+    <mat-label>
+
+      Department Name
+
+    </mat-label>
+
+    <input
+      matInput
+      formControlName="departmentName">
+
+    @if(form.get('departmentName')?.hasError('required')){
+
+      <mat-error>
+
+        Department Name is required
+
+      </mat-error>
+
+    }
+
+  </mat-form-field>
+
+  <br>
+
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit">
+
+    {{buttonText}}
+
+  </button>
+
+</form>

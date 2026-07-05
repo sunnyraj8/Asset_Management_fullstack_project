@@ -94,7 +94,16 @@ public class DepartmentServiceImpl implements DepartmentService {
 
         return String.format("DEP-%05d", nextNumber);
     }
+    @Override
+    public Page<DepartmentResponse> searchDepartments(
+            String keyword,
+            Pageable pageable) {
 
+        return departmentRepository
+                .search(keyword, pageable)
+                .map(this::mapToResponse);
+
+    }
     private DepartmentResponse mapToResponse(Department department) {
 
         return DepartmentResponse.builder()

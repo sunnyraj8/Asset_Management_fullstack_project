@@ -1,0 +1,39 @@
+table{
+
+  width:100%;
+
+}
+
+.toolbar{
+
+  display:flex;
+
+  gap:16px;
+
+  align-items:center;
+
+  margin-bottom:20px;
+
+  flex-wrap:wrap;
+
+}
+
+mat-form-field{
+
+  width:300px;
+
+}
+
+button{
+
+  margin-right:8px;
+
+}
+
+a{
+
+  text-decoration:none;
+
+  font-weight:500;
+
+}

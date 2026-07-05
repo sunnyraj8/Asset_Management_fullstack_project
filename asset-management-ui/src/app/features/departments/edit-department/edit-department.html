@@ -1,0 +1,15 @@
+<h2>Edit Department</h2>
+
+@if(department){
+
+  <app-department-form
+
+    [initialData]="department"
+
+    buttonText="Update Department"
+
+    (save)="save($event)">
+
+  </app-department-form>
+
+}
