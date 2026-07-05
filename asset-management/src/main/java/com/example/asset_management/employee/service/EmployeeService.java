@@ -25,4 +25,8 @@ public interface EmployeeService {
             UpdateEmployeeStatusRequest request);
 
     List<ActiveEmployeeResponse> getActiveEmployees();
+
+    Page<EmployeeResponse> searchEmployees(
+            String keyword,
+            Pageable pageable);
 }

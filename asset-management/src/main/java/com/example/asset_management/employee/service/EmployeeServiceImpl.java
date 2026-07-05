@@ -163,6 +163,21 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .toList();
 
     }
+
+    @Override
+    public Page<EmployeeResponse> searchEmployees(
+            String keyword,
+            Pageable pageable) {
+
+        return employeeRepository
+                .findByEmployeeCodeContainingIgnoreCaseOrFirstNameContainingIgnoreCaseOrLastNameContainingIgnoreCase(
+                        keyword,
+                        keyword,
+                        keyword,
+                        pageable
+                )
+                .map(this::mapToResponse);
+    }
     private EmployeeResponse mapToResponse(Employee employee) {
 
         return EmployeeResponse.builder()
@@ -173,6 +188,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .email(employee.getEmail())
                 .phoneNumber(employee.getPhoneNumber())
                 .designation(employee.getDesignation())
+                .departmentId(employee.getDepartment().getId())
                 .department(employee.getDepartment().getDepartmentName())
                 .active(employee.getActive())
                 .build();

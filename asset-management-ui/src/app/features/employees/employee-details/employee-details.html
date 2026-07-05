@@ -1,0 +1,92 @@
+<h2>Employee Details</h2>
+
+@if(loading){
+
+  <mat-spinner></mat-spinner>
+
+}
+
+@else if(employee){
+
+  <mat-card>
+
+    <table class="details-table">
+
+      <tr>
+        <td><strong>Employee Code</strong></td>
+        <td>{{employee.employeeCode}}</td>
+      </tr>
+
+      <tr>
+        <td><strong>First Name</strong></td>
+        <td>{{employee.firstName}}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Last Name</strong></td>
+        <td>{{employee.lastName}}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Email</strong></td>
+        <td>{{employee.email}}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Phone Number</strong></td>
+        <td>{{employee.phoneNumber}}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Designation</strong></td>
+        <td>{{employee.designation}}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Department</strong></td>
+        <td>{{employee.department}}</td>
+      </tr>
+
+      <tr>
+        <td><strong>Status</strong></td>
+        <td>
+
+          @if(employee.active){
+
+            <span class="status-chip active">
+
+              ACTIVE
+
+            </span>
+
+          }
+
+          @else{
+
+            <span class="status-chip inactive">
+
+              INACTIVE
+
+            </span>
+
+          }
+
+        </td>
+      </tr>
+
+    </table>
+
+  </mat-card>
+
+  <br>
+
+  <button
+    mat-raised-button
+    color="primary"
+    routerLink="/employees">
+
+    Back
+
+  </button>
+
+}

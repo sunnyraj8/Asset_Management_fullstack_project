@@ -38,11 +38,24 @@ public class EmployeeController {
 
     }
 
-    @GetMapping("/search")
-    public EmployeeResponse getEmployeeByCode(
-            @RequestParam String employeeCode) {
+//    @GetMapping("/search")
+//    public EmployeeResponse getEmployeeByCode(
+//            @RequestParam String employeeCode) {
+//
+//        return employeeService.getEmployeeByCode(employeeCode);
+//    }
 
-        return employeeService.getEmployeeByCode(employeeCode);
+    @GetMapping("/search")
+    public Page<EmployeeResponse> searchEmployees(
+
+            @RequestParam String keyword,
+
+            Pageable pageable) {
+
+        return employeeService.searchEmployees(
+                keyword,
+                pageable);
+
     }
     @GetMapping("/{id}")
     public EmployeeResponse getEmployeeById(@PathVariable Long id) {

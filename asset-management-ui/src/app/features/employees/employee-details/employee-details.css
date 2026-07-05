@@ -1,0 +1,49 @@
+mat-card{
+
+  max-width:700px;
+
+  padding:20px;
+
+}
+
+.details-table{
+
+  width:100%;
+
+  border-collapse:collapse;
+
+}
+
+.details-table td{
+
+  padding:12px;
+
+  border-bottom:1px solid #eee;
+
+}
+
+.status-chip{
+
+  padding:5px 12px;
+
+  border-radius:20px;
+
+  color:white;
+
+  font-size:12px;
+
+  font-weight:600;
+
+}
+
+.active{
+
+  background:#2e7d32;
+
+}
+
+.inactive{
+
+  background:#d32f2f;
+
+}

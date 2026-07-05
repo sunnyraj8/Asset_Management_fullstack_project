@@ -74,25 +74,25 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/employees/employee-list/employee-list')
             .then(c => c.EmployeeList)
-      }
-      // {
-      //   path: 'employees/create',
-      //   loadComponent: () =>
-      //     import('./features/employees/create-employee/create-employee')
-      //       .then(c => c.CreateEmployee)
-      // },
-      // {
-      //   path: 'employees/:id',
-      //   loadComponent: () =>
-      //     import('./features/employees/employee-details/employee-details')
-      //       .then(c => c.EmployeeDetails)
-      // },
-      // {
-      //   path: 'employees/edit/:id',
-      //   loadComponent: () =>
-      //     import('./features/employees/edit-employee/edit-employee')
-      //       .then(c => c.EditEmployee)
-      // },
+      },
+      {
+        path: 'employees/create',
+        loadComponent: () =>
+          import('./features/employees/create-employee/create-employee')
+            .then(c => c.CreateEmployee)
+      },
+      {
+        path: 'employees/:id',
+        loadComponent: () =>
+          import('./features/employees/employee-details/employee-details')
+            .then(c => c.EmployeeDetails)
+      },
+      {
+        path: 'employees/edit/:id',
+        loadComponent: () =>
+          import('./features/employees/edit-employee/edit-employee')
+            .then(c => c.EditEmployee)
+      },
 
 
     ]

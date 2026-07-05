@@ -14,6 +14,8 @@ export interface Employee {
 
   designation: string;
 
+  departmentId: number;
+
   department: string;
 
   active: boolean;

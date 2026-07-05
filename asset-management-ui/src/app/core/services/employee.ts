@@ -25,4 +25,55 @@ export class EmployeeService {
 
   }
 
+  getEmployee(id: number): Observable<Employee> {
+
+    return this.http.get<Employee>(
+      `${environment.apiUrl}/employees/${id}`
+    );
+
+  }
+  createEmployee(request: any): Observable<Employee> {
+
+    return this.http.post<Employee>(
+      `${environment.apiUrl}/employees`,
+      request
+    );
+
+  }
+
+  updateEmployee(id: number, request: any): Observable<Employee> {
+
+    return this.http.put<Employee>(
+      `${environment.apiUrl}/employees/${id}`,
+      request
+    );
+
+  }
+
+  searchEmployees(
+    keyword: string,
+    page: number = 0,
+    size: number = 10
+  ): Observable<PageResponse<Employee>> {
+
+    return this.http.get<PageResponse<Employee>>(
+      `${environment.apiUrl}/employees/search?keyword=${keyword}&page=${page}&size=${size}`
+    );
+
+  }
+
+  updateEmployeeStatus(
+    id: number,
+    active: boolean
+  ): Observable<Employee> {
+
+    return this.http.put<Employee>(
+      `${environment.apiUrl}/employees/${id}/status`,
+      {
+        active
+      }
+    );
+
+  }
+
 }

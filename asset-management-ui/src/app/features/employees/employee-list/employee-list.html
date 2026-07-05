@@ -1,23 +1,53 @@
 <h2>Employees</h2>
 
-@if(loading){
+@if (loading) {
 
   <mat-spinner></mat-spinner>
 
-}
+} @else {
 
-@else{
+  <div class="toolbar">
 
-  <button
-    mat-raised-button
-    color="primary"
-    routerLink="/employees/create">
+    <button
+      mat-raised-button
+      color="primary"
+      routerLink="/employees/create">
 
-    Create Employee
+      Create Employee
 
-  </button>
+    </button>
 
-  <br><br>
+    <mat-form-field appearance="outline">
+
+      <mat-label>Search Employee</mat-label>
+
+      <input
+        matInput
+        placeholder="Employee Code / Name"
+        [(ngModel)]="keyword"
+        (keyup.enter)="search()">
+
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="search()">
+
+      Search
+
+    </button>
+
+    <button
+      mat-button
+      color="warn"
+      (click)="keyword=''; loadEmployees()">
+
+      Clear
+
+    </button>
+
+  </div>
 
   <table
     mat-table
@@ -111,25 +141,14 @@
 
       <td mat-cell *matCellDef="let employee">
 
-        @if(employee.active){
+        <span
+          class="status-chip"
+          [class.active]="employee.active"
+          [class.inactive]="!employee.active">
 
-          <span class="status-chip active">
+          {{ employee.active ? 'ACTIVE' : 'INACTIVE' }}
 
-            ACTIVE
-
-          </span>
-
-        }
-
-        @else{
-
-          <span class="status-chip inactive">
-
-            INACTIVE
-
-          </span>
-
-        }
+        </span>
 
       </td>
 
@@ -140,9 +159,7 @@
     <ng-container matColumnDef="action">
 
       <th mat-header-cell *matHeaderCellDef>
-
         Action
-
       </th>
 
       <td mat-cell *matCellDef="let employee">
@@ -155,6 +172,34 @@
           Edit
 
         </button>
+
+        &nbsp;
+
+        @if(employee.active){
+
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="toggleStatus(employee)">
+
+            Deactivate
+
+          </button>
+
+        }
+
+        @else{
+
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="toggleStatus(employee)">
+
+            Activate
+
+          </button>
+
+        }
 
       </td>
 

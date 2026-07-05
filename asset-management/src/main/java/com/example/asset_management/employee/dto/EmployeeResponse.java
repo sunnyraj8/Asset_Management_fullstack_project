@@ -21,6 +21,8 @@ public class EmployeeResponse {
 
     private String designation;
 
+    private Long departmentId;
+
     private String department;
 
     private Boolean active;
