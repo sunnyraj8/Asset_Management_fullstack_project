@@ -1,0 +1,93 @@
+.card{
+
+  background:white;
+
+  border-radius:16px;
+
+  padding:24px;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+  text-align:center;
+
+  transition:.25s;
+
+}
+
+.card:hover{
+
+  transform:translateY(-6px);
+
+  box-shadow:0 12px 24px rgba(0,0,0,.15);
+
+}
+
+.icon-box{
+
+  width:70px;
+
+  height:70px;
+
+  border-radius:18px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  margin:auto;
+
+  color:white;
+
+}
+
+.material-icons{
+
+  font-size:36px;
+
+}
+
+h3{
+
+  margin-top:18px;
+
+  margin-bottom:8px;
+
+}
+
+p{
+
+  color:#666;
+
+  min-height:45px;
+
+}
+
+button{
+
+  margin-top:18px;
+
+  width:100%;
+
+  border:none;
+
+  background:#1976d2;
+
+  color:white;
+
+  padding:12px;
+
+  border-radius:8px;
+
+  cursor:pointer;
+
+  font-weight:600;
+
+}
+
+button:hover{
+
+  background:#1565c0;
+
+}

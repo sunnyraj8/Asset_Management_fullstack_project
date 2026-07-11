@@ -6,6 +6,7 @@ import com.example.asset_management.asset.entity.AssetStatus;
 import com.example.asset_management.asset.repository.AssetRepository;
 import com.example.asset_management.dashboard.dto.AssetStatusChartResponse;
 import com.example.asset_management.dashboard.dto.DashboardResponse;
+import com.example.asset_management.dashboard.dto.DepartmentAssetChartResponse;
 import com.example.asset_management.department.repository.DepartmentRepository;
 import com.example.asset_management.employee.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -50,5 +51,12 @@ public class DashboardServiceImpl implements DashboardService {
     public List<AssetStatusChartResponse> getAssetStatusChart() {
 
         return assetRepository.getAssetStatusChart();
+    }
+
+    @Override
+    public List<DepartmentAssetChartResponse> getDepartmentAssetChart() {
+
+        return assetRepository.getDepartmentAssetChart();
+
     }
 }

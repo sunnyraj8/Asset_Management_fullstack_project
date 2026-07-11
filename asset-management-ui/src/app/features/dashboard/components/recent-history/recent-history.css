@@ -1,0 +1,123 @@
+.history-card{
+
+  background:#fff;
+
+  border-radius:12px;
+
+  padding:24px;
+
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:20px;
+
+}
+
+.header h3{
+
+  margin:0;
+
+}
+
+.header a{
+
+  text-decoration:none;
+
+  color:#1976d2;
+
+  font-weight:600;
+
+}
+
+.history-item{
+
+  display:grid;
+
+  grid-template-columns:240px 1fr 220px;
+
+  gap:20px;
+
+  padding:16px 0;
+
+  border-bottom:1px solid #eee;
+
+  align-items:center;
+
+}
+
+.left{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+}
+
+.chip{
+
+  color:white;
+
+  border-radius:20px;
+
+  padding:4px 10px;
+
+  font-size:12px;
+
+  font-weight:600;
+
+}
+
+.created{
+
+  background:#1976d2;
+
+}
+
+.updated{
+
+  background:#fb8c00;
+
+}
+
+.allocated{
+
+  background:#43a047;
+
+}
+
+.returned{
+
+  background:#8e24aa;
+
+}
+
+.scrapped{
+
+  background:#e53935;
+
+}
+
+.default{
+
+  background:#757575;
+
+}
+
+.right{
+
+  color:#666;
+
+  font-size:14px;
+
+}

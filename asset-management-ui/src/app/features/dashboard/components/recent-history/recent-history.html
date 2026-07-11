@@ -1,0 +1,59 @@
+<div class="history-card">
+
+  <div class="header">
+
+    <h3>Recent Asset Activity</h3>
+
+    <a routerLink="/asset-history">
+
+      View All →
+
+    </a>
+
+  </div>
+
+  @if(loading){
+
+    <p>Loading...</p>
+
+  }
+
+  @else {
+
+    @for(item of histories; track item.id){
+
+      <div class="history-item">
+
+        <div class="left">
+
+          <strong>{{item.assetCode}}</strong>
+
+          <span
+            class="chip"
+            [ngClass]="getChipClass(item.action)">
+
+            {{item.action}}
+
+          </span>
+
+        </div>
+
+        <div class="middle">
+
+          {{item.remarks}}
+
+        </div>
+
+        <div class="right">
+
+          {{item.createdAt | date:'dd MMM yyyy, hh:mm a'}}
+
+        </div>
+
+      </div>
+
+    }
+
+  }
+
+</div>

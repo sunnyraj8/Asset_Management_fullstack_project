@@ -2,6 +2,7 @@ package com.example.asset_management.dashboard.controller;
 
 import com.example.asset_management.dashboard.dto.AssetStatusChartResponse;
 import com.example.asset_management.dashboard.dto.DashboardResponse;
+import com.example.asset_management.dashboard.dto.DepartmentAssetChartResponse;
 import com.example.asset_management.dashboard.service.DashboardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,5 +26,12 @@ public class DashboardController {
     public List<AssetStatusChartResponse> assetStatusChart() {
 
         return dashboardService.getAssetStatusChart();
+    }
+
+    @GetMapping("/department-chart")
+    public List<DepartmentAssetChartResponse> departmentChart() {
+
+        return dashboardService.getDepartmentAssetChart();
+
     }
 }

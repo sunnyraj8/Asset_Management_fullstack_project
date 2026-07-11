@@ -5,6 +5,8 @@ import { DepartmentList } from './features/departments/department-list/departmen
 import { DepartmentDetails } from './features/departments/department-details/department-details';
 import { CreateDepartment } from './features/departments/create-department/create-department';
 import { EditDepartment } from './features/departments/edit-department/edit-department';
+import { HistoryList } from './features/asset-history/history-list/history-list';
+import { ReportHome } from './features/reports/report-home/report-home';
 export const routes: Routes = [
 
   {
@@ -117,6 +119,15 @@ export const routes: Routes = [
         component: DepartmentDetails
       },
 
+      {
+        path: 'asset-history',
+        component: HistoryList
+      },
+
+      {
+        path: 'reports',
+        component: ReportHome
+      },
     ]
 
   }

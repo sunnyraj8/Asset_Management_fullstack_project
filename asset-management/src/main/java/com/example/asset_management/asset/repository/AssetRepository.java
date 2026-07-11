@@ -1,6 +1,7 @@
 package com.example.asset_management.asset.repository;
 
 import com.example.asset_management.asset.entity.Asset;
+import com.example.asset_management.dashboard.dto.DepartmentAssetChartResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.asset_management.asset.entity.AssetStatus;
 
@@ -38,4 +39,16 @@ public interface AssetRepository
     List<AssetStatusChartResponse> getAssetStatusChart();
 
     List<Asset> findByStatusIn(List<AssetStatus> statuses);
+
+    @Query("""
+SELECT new com.example.asset_management.dashboard.dto.DepartmentAssetChartResponse(
+d.departmentName,
+COUNT(a)
+)
+FROM Asset a
+JOIN a.department d
+GROUP BY d.departmentName
+ORDER BY COUNT(a) DESC
+""")
+    List<DepartmentAssetChartResponse> getDepartmentAssetChart();
 }

@@ -2,6 +2,9 @@ package com.example.asset_management.auth.service;
 
 import com.example.asset_management.auth.dto.LoginRequest;
 import com.example.asset_management.auth.dto.LoginResponse;
+import com.example.asset_management.auth.dto.RegisterRequest;
+import com.example.asset_management.role.entity.Role;
+import com.example.asset_management.role.repository.RoleRepository;
 import com.example.asset_management.security.JwtService;
 import com.example.asset_management.user.entity.User;
 import com.example.asset_management.user.repository.UserRepository;
@@ -18,6 +21,8 @@ public class AuthServiceImpl implements AuthService {
     private final PasswordEncoder passwordEncoder;
 
     private final JwtService jwtService;
+
+    private final RoleRepository roleRepository;
 
     @Override
     public LoginResponse login(LoginRequest request) {
@@ -50,4 +55,31 @@ public class AuthServiceImpl implements AuthService {
                 .role(user.getRole().getRoleName())
                 .build();
     }
+
+    @Override
+    public void register(RegisterRequest request) {
+        if (userRepository.findByUsername(request.getUsername()).isPresent()) {
+            throw new RuntimeException("Username already exists");
+        }
+
+        if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+            throw new RuntimeException("Email already exists");
+        }
+
+        Role role = roleRepository.findById(request.getRoleId())
+                .orElseThrow(() -> new RuntimeException("Role not found"));
+
+        User user = User.builder()
+                .fullName(request.getFullName())
+                .username(request.getUsername())
+                .email(request.getEmail())
+                .passwordHash(passwordEncoder.encode(request.getPassword()))
+                .role(role)
+                .active(true)
+                .build();
+
+        userRepository.save(user);
+    }
+
+
 }

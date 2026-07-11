@@ -7,7 +7,7 @@ import { API } from '../constants/api.constants';
 
 import { DashboardSummary } from '../models/dashboard-summary';
 import { AssetStatusChart } from '../models/asset-status-chart';
-
+import { DepartmentAssetChart } from '../models/department-asset-chart';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,6 +27,14 @@ export class DashboardService {
 
     return this.http.get<AssetStatusChart[]>(
       environment.apiUrl + API.ASSET_STATUS_CHART
+    );
+
+  }
+
+  getDepartmentChart(): Observable<DepartmentAssetChart[]> {
+
+    return this.http.get<DepartmentAssetChart[]>(
+      environment.apiUrl + '/dashboard/department-chart'
     );
 
   }

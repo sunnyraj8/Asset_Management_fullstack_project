@@ -1,73 +1,67 @@
 <h2>Dashboard</h2>
 
-<div *ngIf="summary">
+@if(summary){
 
-  <table border="1" cellpadding="10">
+  <div class="cards">
 
-    <tr>
-      <td>Total Assets</td>
-      <td>{{summary.totalAssets}}</td>
-    </tr>
+    <app-summary-card
+      title="Total Assets"
+      [value]="summary.totalAssets"
+      icon="inventory_2"
+      color="#1976d2">
+    </app-summary-card>
 
-    <tr>
-      <td>New Assets</td>
-      <td>{{summary.newAssets}}</td>
-    </tr>
+    <app-summary-card
+      title="Employees"
+      [value]="summary.totalEmployees"
+      icon="groups"
+      color="#43a047">
+    </app-summary-card>
 
-    <tr>
-      <td>Allocated Assets</td>
-      <td>{{summary.allocatedAssets}}</td>
-    </tr>
+    <app-summary-card
+      title="Departments"
+      [value]="summary.totalDepartments"
+      icon="apartment"
+      color="#fb8c00">
+    </app-summary-card>
 
-    <tr>
-      <td>Returned Assets</td>
-      <td>{{summary.returnedAssets}}</td>
-    </tr>
+    <app-summary-card
+      title="Active Allocations"
+      [value]="summary.activeAllocations"
+      icon="assignment"
+      color="#8e24aa">
+    </app-summary-card>
 
-    <tr>
-      <td>Scrapped Assets</td>
-      <td>{{summary.scrappedAssets}}</td>
-    </tr>
+  </div>
 
-    <tr>
-      <td>Total Employees</td>
-      <td>{{summary.totalEmployees}}</td>
-    </tr>
+  <div class="chart-row">
 
-    <tr>
-      <td>Total Departments</td>
-      <td>{{summary.totalDepartments}}</td>
-    </tr>
+    <div class="chart-card">
 
-    <tr>
-      <td>Active Allocations</td>
-      <td>{{summary.activeAllocations}}</td>
-    </tr>
+      <h3>Asset Status</h3>
 
-  </table>
+      <app-pie-chart
+        [data]="assetStatusChart">
+      </app-pie-chart>
 
-</div>
+    </div>
 
-<br>
+    <div class="chart-card">
 
-<h3>Asset Status</h3>
+      <h3>Assets by Department</h3>
 
-<table border="1" cellpadding="10">
+      <app-bar-chart
+        [data]="departmentChart">
+      </app-bar-chart>
 
-  <tr>
+    </div>
 
-    <th>Status</th>
+  </div>
 
-    <th>Count</th>
+  <div class="recent-section">
 
-  </tr>
+    <app-recent-history></app-recent-history>
 
-  <tr *ngFor="let item of assetStatusChart">
+  </div>
 
-    <td>{{item.status}}</td>
-
-    <td>{{item.count}}</td>
-
-  </tr>
-
-</table>
+}

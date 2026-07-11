@@ -1,1 +1,218 @@
-<p>history-list works!</p>
+<h2>Asset History</h2>
+
+@if(loading){
+
+  <mat-spinner></mat-spinner>
+
+}
+
+@else{
+
+  <div class="toolbar">
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="loadHistory()">
+
+      Refresh
+
+    </button>
+
+    <mat-form-field appearance="outline">
+
+      <mat-label>
+
+        Search Asset
+
+      </mat-label>
+
+      <input
+        matInput
+        placeholder="Asset Code"
+        [(ngModel)]="keyword"
+        (keyup.enter)="search()">
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+      <mat-label>
+
+        Action
+
+      </mat-label>
+
+      <mat-select
+        [(ngModel)]="action"
+        (selectionChange)="filter()">
+
+        <mat-option value="">
+
+          All
+
+        </mat-option>
+
+        <mat-option value="CREATED">
+
+          CREATED
+
+        </mat-option>
+
+        <mat-option value="UPDATED">
+
+          UPDATED
+
+        </mat-option>
+
+        <mat-option value="ALLOCATED">
+
+          ALLOCATED
+
+        </mat-option>
+
+        <mat-option value="RETURNED">
+
+          RETURNED
+
+        </mat-option>
+
+      </mat-select>
+
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="search()">
+
+      Search
+
+    </button>
+
+    <button
+      mat-button
+      color="warn"
+      (click)="clear()">
+
+      Clear
+
+    </button>
+
+  </div>
+
+  <br>
+
+  <table
+    mat-table
+    [dataSource]="histories">
+
+    <!-- Asset -->
+
+    <ng-container matColumnDef="asset">
+
+      <th mat-header-cell *matHeaderCellDef>
+
+        Asset
+
+      </th>
+
+      <td mat-cell *matCellDef="let history">
+
+        <a
+          [routerLink]="['/assets', history.assetCode]">
+
+          {{history.assetCode}}
+
+        </a>
+
+      </td>
+
+    </ng-container>
+
+    <!-- Action -->
+
+    <ng-container matColumnDef="action">
+
+      <th mat-header-cell *matHeaderCellDef>
+
+        Action
+
+      </th>
+
+      <td mat-cell *matCellDef="let history">
+
+        <mat-chip
+          [ngClass]="history.action.toLowerCase()">
+
+          {{history.action}}
+
+        </mat-chip>
+
+      </td>
+
+    </ng-container>
+
+    <!-- Date -->
+
+    <ng-container matColumnDef="date">
+
+      <th mat-header-cell *matHeaderCellDef>
+
+        Date & Time
+
+      </th>
+
+      <td mat-cell *matCellDef="let history">
+
+        {{history.createdAt | date:'dd MMM yyyy, hh:mm a'}}
+
+      </td>
+
+    </ng-container>
+
+    <!-- Remarks -->
+
+    <ng-container matColumnDef="remarks">
+
+      <th mat-header-cell *matHeaderCellDef>
+
+        Remarks
+
+      </th>
+
+      <td mat-cell *matCellDef="let history">
+
+        {{history.remarks}}
+
+      </td>
+
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="displayedColumns">
+    </tr>
+
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns">
+    </tr>
+
+  </table>
+
+  <mat-paginator
+
+    [length]="totalElements"
+
+    [pageSize]="size"
+
+    [pageIndex]="page"
+
+    [pageSizeOptions]="[5,10,20]"
+
+    (page)="onPageChange($event)">
+
+  </mat-paginator>
+
+}

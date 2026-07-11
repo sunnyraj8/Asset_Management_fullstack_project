@@ -1,0 +1,83 @@
+.toolbar{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:16px;
+
+  flex-wrap:wrap;
+
+  margin-bottom:20px;
+
+}
+
+table{
+
+  width:100%;
+
+}
+
+.mat-mdc-row:hover{
+
+  background:#f7f9fc;
+
+}
+
+mat-form-field{
+
+  width:240px;
+
+}
+
+mat-chip{
+
+  color:white;
+
+  font-weight:600;
+
+}
+
+.created{
+
+  background:#1565c0 !important;
+
+}
+
+.updated{
+
+  background:#ef6c00 !important;
+
+}
+
+.allocated{
+
+  background:#2e7d32 !important;
+
+}
+
+.returned{
+
+  background:#6a1b9a !important;
+
+}
+
+a{
+
+  text-decoration:none;
+
+  font-weight:600;
+
+}
+
+a:hover{
+
+  text-decoration:underline;
+
+}
+
+.mat-mdc-paginator{
+
+  margin-top:16px;
+
+}
