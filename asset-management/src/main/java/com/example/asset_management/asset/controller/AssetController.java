@@ -1,6 +1,7 @@
 package com.example.asset_management.asset.controller;
 
 import com.example.asset_management.asset.dto.*;
+import com.example.asset_management.asset.entity.AssetStatus;
 import com.example.asset_management.asset.service.AssetService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -63,6 +64,14 @@ public class AssetController {
     public List<AvailableAssetResponse> getAvailableAssets() {
 
         return assetService.getAvailableAssets();
+
+    }
+
+    @GetMapping("/{id}/next-statuses")
+    public List<AssetStatus> getNextStatuses(
+            @PathVariable Long id) {
+
+        return assetService.getNextStatuses(id);
 
     }
 }

@@ -76,7 +76,63 @@
   </table>
 
   <br>
+  <hr>
 
+  <h3>Asset Status</h3>
+
+  <app-lifecycle-stepper
+    [currentStatus]="asset.status">
+  </app-lifecycle-stepper>
+  <p>
+
+    <strong>Current Status:</strong>
+
+    {{asset.status}}
+
+  </p>
+
+  @if(availableStatuses.length){
+
+    <label>
+
+      Next Status
+
+    </label>
+
+    <br><br>
+
+    <select [(ngModel)]="selectedStatus">
+
+      @for(status of availableStatuses; track status){
+
+        <option [value]="status">
+
+          {{status}}
+
+        </option>
+
+      }
+
+    </select>
+
+    <br><br>
+
+    <button (click)="updateStatus()">
+
+      Update Status
+
+    </button>
+
+  }
+  @else {
+
+    <p>
+
+      No further transitions available.
+
+    </p>
+
+  }
   <button (click)="back()">
     Back
   </button>

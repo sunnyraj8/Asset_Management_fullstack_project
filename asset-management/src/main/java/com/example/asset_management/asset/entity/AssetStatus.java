@@ -6,15 +6,19 @@ public enum AssetStatus {
 
     IN_STOCK,
 
-    UNDER_PREPARATION,
+    UNDER_CONFIGURATION,
 
-    PREPARED,
+    READY_TO_HANDOVER,
 
     ALLOCATED,
 
-    RELOCATED,
-
     RETURNED,
+
+    UNDER_REPAIR,
+
+    LOST,
+
+    DAMAGED,
 
     SCRAPPED
 }

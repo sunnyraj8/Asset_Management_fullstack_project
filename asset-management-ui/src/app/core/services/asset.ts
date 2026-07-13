@@ -58,4 +58,28 @@ export class AssetService {
 
   }
 
+  updateAssetStatus(
+    id: number,
+    request: { status: string }
+  ): Observable<Asset> {
+
+    return this.http.put<Asset>(
+      `${environment.apiUrl}/assets/${id}/status`,
+      request
+    );
+
+  }
+
+  getNextStatuses(
+    assetId: number
+  ): Observable<string[]> {
+
+    return this.http.get<string[]>(
+
+      `${environment.apiUrl}/assets/${assetId}/next-statuses`
+
+    );
+
+  }
+
 }

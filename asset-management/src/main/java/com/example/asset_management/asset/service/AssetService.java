@@ -1,6 +1,7 @@
 package com.example.asset_management.asset.service;
 
 import com.example.asset_management.asset.dto.*;
+import com.example.asset_management.asset.entity.AssetStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -19,4 +20,6 @@ public interface AssetService {
             UpdateAssetStatusRequest request);
 
     List<AvailableAssetResponse> getAvailableAssets();
+
+    List<AssetStatus> getNextStatuses(Long assetId);
 }

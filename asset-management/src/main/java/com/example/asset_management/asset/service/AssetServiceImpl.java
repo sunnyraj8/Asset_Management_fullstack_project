@@ -3,6 +3,7 @@ package com.example.asset_management.asset.service;
 import com.example.asset_management.asset.dto.*;
 import com.example.asset_management.asset.entity.Asset;
 import com.example.asset_management.asset.entity.AssetStatus;
+import com.example.asset_management.asset.lifecycle.AssetLifecycleService;
 import com.example.asset_management.asset.repository.AssetRepository;
 import com.example.asset_management.department.entity.Department;
 import com.example.asset_management.department.repository.DepartmentRepository;
@@ -31,6 +32,7 @@ public class AssetServiceImpl implements AssetService {
 
     private final EmployeeRepository employeeRepository;
     private final AssetHistoryRepository assetHistoryRepository;
+    private final AssetLifecycleService assetLifecycleService;
 
     @Override
     public AssetResponse createAsset(CreateAssetRequest request) {
@@ -191,11 +193,23 @@ public class AssetServiceImpl implements AssetService {
                 .orElseThrow(() ->
                         new ResourceNotFoundException("Asset not found"));
 
-        asset.setStatus(request.getStatus());
+        asset = assetLifecycleService.changeStatus(
 
-        assetRepository.save(asset);
+                asset,
+
+                request.getStatus(),
+
+                "STATUS_CHANGED",
+
+                "Status changed from "
+                        + asset.getStatus()
+                        + " to "
+                        + request.getStatus()
+
+        );
 
         return mapToResponse(asset);
+
     }
     private String generateAssetCode() {
 
@@ -231,6 +245,18 @@ public class AssetServiceImpl implements AssetService {
                         .status(asset.getStatus())
                         .build())
                 .toList();
+
+    }
+
+    @Override
+    public List<AssetStatus> getNextStatuses(Long assetId) {
+
+        Asset asset = assetRepository.findById(assetId)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("Asset not found"));
+
+        return assetLifecycleService.getAllowedTransitions(
+                asset.getStatus());
 
     }
     private AssetResponse mapToResponse(Asset asset) {

@@ -1,0 +1,35 @@
+<div class="stepper">
+
+  @for(step of flow; track step){
+
+    <div class="step">
+
+      <div
+        class="circle"
+        [class.done]="isCompleted(step)"
+        [class.current]="isCurrent(step)">
+
+        @if(isCompleted(step)){
+
+          ✓
+
+        }
+        @else{
+
+          {{ $index + 1 }}
+
+        }
+
+      </div>
+
+      <span>
+
+        {{step.replaceAll('_',' ')}}
+
+      </span>
+
+    </div>
+
+  }
+
+</div>

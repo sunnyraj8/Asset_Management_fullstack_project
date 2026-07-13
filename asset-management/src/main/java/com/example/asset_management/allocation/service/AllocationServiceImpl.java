@@ -9,6 +9,7 @@ import com.example.asset_management.asset.entity.Asset;
 import com.example.asset_management.asset.entity.AssetStatus;
 import com.example.asset_management.asset.history.entity.AssetHistory;
 import com.example.asset_management.asset.history.repository.AssetHistoryRepository;
+import com.example.asset_management.asset.lifecycle.AssetLifecycleService;
 import com.example.asset_management.asset.repository.AssetRepository;
 import com.example.asset_management.employee.entity.Employee;
 import com.example.asset_management.employee.repository.EmployeeRepository;
@@ -33,6 +34,8 @@ public class AllocationServiceImpl implements AllocationService {
     private final EmployeeRepository employeeRepository;
 
     private final AssetHistoryRepository assetHistoryRepository;
+
+    private final AssetLifecycleService assetLifecycleService;
 
     @Override
     @Transactional

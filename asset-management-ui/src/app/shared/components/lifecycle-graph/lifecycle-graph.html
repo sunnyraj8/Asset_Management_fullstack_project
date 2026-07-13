@@ -1,0 +1,33 @@
+<div class="graph">
+
+  @for(node of nodes; track node.status){
+
+    <div
+      class="node"
+      [style.grid-column]="node.column + 1"
+      [style.grid-row]="node.level + 1">
+
+      <div
+        class="circle"
+        [class.completed]="isCompleted(node.status)"
+        [class.current]="isCurrent(node.status)">
+
+        @if(isCompleted(node.status)){
+          ✓
+        } @else {
+          {{node.label.charAt(0)}}
+        }
+
+      </div>
+
+      <div class="label">
+
+        {{node.label}}
+
+      </div>
+
+    </div>
+
+  }
+
+</div>

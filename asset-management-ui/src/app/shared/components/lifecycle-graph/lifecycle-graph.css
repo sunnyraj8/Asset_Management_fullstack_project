@@ -1,0 +1,82 @@
+.graph{
+
+  display:grid;
+
+  grid-template-columns:repeat(5,1fr);
+
+  grid-template-rows:repeat(6,120px);
+
+  gap:20px;
+
+  width:100%;
+
+  padding:30px;
+
+}
+
+.node{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+}
+
+.circle{
+
+  width:64px;
+
+  height:64px;
+
+  border-radius:50%;
+
+  background:#e0e0e0;
+
+  color:#333;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  font-size:22px;
+
+  font-weight:700;
+
+  transition:.25s;
+
+}
+
+.circle.completed{
+
+  background:#43a047;
+
+  color:#fff;
+
+}
+
+.circle.current{
+
+  background:#1976d2;
+
+  color:#fff;
+
+  transform:scale(1.08);
+
+  box-shadow:0 4px 12px rgba(25,118,210,.35);
+
+}
+.label{
+
+  margin-top:10px;
+
+  font-size:13px;
+
+  text-align:center;
+
+}
